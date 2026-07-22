@@ -1,0 +1,113 @@
+/* STREAMING_CHUNK:Styling layout, gradients and animations... */
+body {
+font-family: 'Poppins', sans-serif;
+overflow-x: hidden;
+background: linear-gradient(-45deg, #ffe6e6, #ffb3b3, #ff99cc, #ffcccc);
+background-size: 400% 400%;
+animation: gradientAnimado 15s ease infinite;
+min-height: 100vh;
+}
+
+@keyframes gradientAnimado {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.fonte-romantica {
+font-family: 'Dancing Script', cursive;
+}
+
+.texto-glow {
+text-shadow: 0 0 10px rgba(255, 77, 77, 0.6), 0 0 20px rgba(255, 77, 77, 0.4);
+}
+
+.glass-box {
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.6);
+box-shadow: 0 8px 32px 0 rgba(255, 77, 77, 0.3), inset 0 0 20px rgba(255,255,255,0.5);
+position: relative;
+}
+
+.canto-floral {
+position: absolute;
+font-size: 2.5rem;
+opacity: 0.8;
+filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.canto-tl { top: -15px; left: -15px; transform: rotate(-20deg); }
+.canto-br { bottom: -15px; right: -15px; transform: rotate(160deg); }
+
+.btn-fugitivo {
+transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.polaroid {
+background: #fff;
+padding: 12px 12px 24px 12px;
+box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+border-radius: 4px;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+position: relative;
+width: 100%;
+animation: flutuar 6s ease-in-out infinite;
+}
+
+.polaroid:nth-child(1) { animation-delay: 0s; }
+.polaroid:nth-child(2) { animation-delay: 1s; }
+.polaroid:nth-child(3) { animation-delay: 2s; }
+.polaroid:nth-child(4) { animation-delay: 1.5s; }
+.polaroid:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes flutuar {
+0% { transform: translateY(0px) rotate(0deg); }
+50% { transform: translateY(-10px) rotate(1deg); }
+100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.polaroid:hover, .polaroid:active {
+transform: scale(1.08) rotate(0deg) translateY(-5px) !important;
+box-shadow: 0 15px 35px rgba(255, 77, 77, 0.4);
+z-index: 10;
+}
+
+.polaroid img {
+width: 100%;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+border-radius: 2px;
+box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.flor-bg {
+position: fixed;
+z-index: 1;
+pointer-events: none;
+animation: cairFlor linear forwards;
+opacity: 0.6;
+filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+.coracao {
+position: fixed;
+color: #ff4d4d;
+z-index: 1;
+pointer-events: none;
+animation: cairFlor linear forwards;
+filter: drop-shadow(0 2px 4px rgba(255,0,0,0.4));
+}
+
+@keyframes cairFlor {
+0% { transform: translateY(-10vh) scale(0.5) rotate(0deg); }
+100% { transform: translateY(110vh) scale(1.2) rotate(360deg); }
+}
+
+.pulso {
+animation: pulsar 1.5s infinite;
+}
+@keyframes pulsar {
+0% { transform: scale(1); }
+50% { transform: scale(1.15); filter: brightness(1.2); }
+100% { transform: scale(1); }
+}
