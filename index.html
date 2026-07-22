@@ -1,335 +1,328 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Meu Amor ❤️</title>
+<!-- Importando Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Importando Fontes do Google -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Importando Estilos Separados -->
+<link rel="stylesheet" href="style.css">
+
+
+<div id="flores-container" class="absolute inset-0 pointer-events-none overflow-hidden z-10"></div>
+<div id="coracoes-container" class="fixed inset-0 pointer-events-none overflow-hidden z-10"></div>
+
+<!-- Overlay das Perguntas -->
+<div id="quiz-container" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-700">
     
-    <!-- Importando Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Importando Fontes do Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Importando Estilos Separados -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="text-gray-800 antialiased selection:bg-red-200 selection:text-red-900">
-
-    <div id="flores-container" class="absolute inset-0 pointer-events-none overflow-hidden z-10"></div>
-    <div id="coracoes-container" class="fixed inset-0 pointer-events-none overflow-hidden z-10"></div>
-
-    <!-- Overlay das Perguntas -->
-    <div id="quiz-container" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-700">
+    <!-- Pergunta 1 -->
+    <div id="pergunta-1" class="glass-box p-8 md:p-12 rounded-3xl w-full max-w-sm text-center transform transition-all relative z-20">
+        <div class="canto-floral canto-tl">🌸</div>
+        <div class="canto-floral canto-br">🌹</div>
         
-        <!-- Pergunta 1 -->
-        <div id="pergunta-1" class="glass-box p-8 md:p-12 rounded-3xl w-full max-w-sm text-center transform transition-all relative z-20">
-            <div class="canto-floral canto-tl">🌸</div>
-            <div class="canto-floral canto-br">🌹</div>
-            
-            <h2 class="fonte-romantica text-5xl md:text-5xl text-red-600 mb-8 tracking-wide texto-glow">Você me ama?</h2>
-            
-            <div class="relative h-16 min-h-[64px] flex justify-center gap-4">
-                <button id="btn-sim-1" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/50 transition-transform active:scale-95 z-30 w-32 border-2 border-white/20">
-                    Sim
-                </button>
-                <button id="btn-nao-1" class="btn-fugitivo bg-white text-gray-700 font-semibold py-3 px-8 rounded-full shadow-md z-30 w-32 border border-gray-200">
-                    Não
+        <h2 class="fonte-romantica text-5xl md:text-5xl text-red-600 mb-8 tracking-wide texto-glow">Você me ama?</h2>
+        
+        <div class="relative h-16 min-h-[64px] flex justify-center gap-4">
+            <button id="btn-sim-1" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/50 transition-transform active:scale-95 z-30 w-32 border-2 border-white/20">
+                Sim
+            </button>
+            <button id="btn-nao-1" class="btn-fugitivo bg-white text-gray-700 font-semibold py-3 px-8 rounded-full shadow-md z-30 w-32 border border-gray-200">
+                Não
+            </button>
+        </div>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div id="pergunta-2" class="glass-box p-8 md:p-12 rounded-3xl w-full max-w-sm text-center hidden transform transition-all scale-95 opacity-0 relative z-20">
+        <div class="canto-floral canto-tl">🌺</div>
+        <div class="canto-floral canto-br">🌷</div>
+        
+        <h2 class="fonte-romantica text-4xl md:text-5xl text-red-600 mb-8 leading-tight texto-glow">O quantos % você me ama?</h2>
+        <div class="relative h-32 flex flex-col items-center gap-4">
+            <button id="btn-sim-2" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg shadow-red-500/50 transition-transform active:scale-95 w-full z-30 border-2 border-white/20">
+                Todos os % do mundo
+            </button>
+            <button id="btn-nao-2" class="btn-fugitivo bg-white text-gray-700 font-semibold py-3 px-8 rounded-full shadow-md z-30 w-32 border border-gray-200">
+                0%
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="site-principal" class="hidden relative z-20 min-h-screen flex flex-col items-center pb-20 opacity-0 transition-opacity duration-1000">
+    
+    <!-- Menu de Navegação Superior -->
+    <nav class="w-full bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40 px-4 py-3 border-b border-white/40">
+        <div class="max-w-4xl mx-auto flex justify-center gap-2 md:gap-4 flex-wrap">
+            <button onclick="mudarPagina('pagina-home')" id="tab-home" class="px-4 py-2 rounded-full font-semibold transition-all bg-red-500 text-white shadow-md text-sm md:text-base">
+                💖 Nossa História
+            </button>
+            <button onclick="mudarPagina('pagina-conexao')" id="tab-conexao" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
+                🌍 Nossa Conexão
+            </button>
+            <button onclick="mudarPagina('pagina-playlist')" id="tab-playlist" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
+                🎵 Nossa Trilha
+            </button>
+            <button onclick="mudarPagina('pagina-capsula')" id="tab-capsula" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
+                🎯 Metas e Jogos
+            </button>
+            <button onclick="mudarPagina('pagina-saude')" id="tab-saude" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
+                💊 Farmácia & Saúde
+            </button>
+        </div>
+    </nav>
+
+    <!-- PÁGINA 1: Nossa História -->
+    <div id="pagina-home" class="w-full flex flex-col items-center">
+        <header class="text-center mt-6 mb-12 px-4 relative">
+            <div class="text-6xl mb-2 pulso inline-block drop-shadow-md">💖</div>
+            <h1 class="fonte-romantica text-6xl md:text-8xl text-red-600 mb-6 texto-glow font-black">Nossa História</h1>
+            <p class="text-lg md:text-xl text-red-900 font-semibold bg-white/70 inline-block px-8 py-3 rounded-full shadow-lg backdrop-blur-md border border-white">
+                A melhor escolha da minha vida há <span id="contador-dias" class="font-bold text-red-600 text-3xl mx-2">0</span> dias!
+            </p>
+        </header>
+
+        <section class="w-full max-w-5xl px-4 md:px-8 relative z-25">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-10">
+                <div class="polaroid w-full max-w-[280px]">
+                    <img src="Foto1.jpeg" alt="Nosso Momento 1">
+                    <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Meu Tudo ❤️</div>
+                </div>
+                <div class="polaroid w-full max-w-[280px]">
+                    <img src="Foto2.jpeg" alt="Nosso Momento 2">
+                    <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Nosso Momento ✨</div>
+                </div>
+                <div class="polaroid w-full max-w-[280px]">
+                    <img src="Foto3.jpeg" alt="Nosso Momento 3">
+                    <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Perfeição 🥰</div>
+                </div>
+                <div class="polaroid w-full max-w-[280px]">
+                    <img src="Foto4.jpeg" alt="Nosso Momento 4">
+                    <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Para Sempre 💑</div>
+                </div>
+                <div class="polaroid w-full max-w-[280px]">
+                    <img src="Foto5.jpeg" alt="Nosso Momento 5">
+                    <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Minha Vida 💖</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-20 px-4 w-full max-w-2xl text-center z-25">
+            <div class="glass-box p-10 rounded-3xl relative border-2 border-white/50">
+                <span class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-6xl pulso drop-shadow-lg">💌</span>
+                <h3 class="fonte-romantica text-4xl md:text-5xl text-red-600 leading-relaxed mt-4 font-bold texto-glow">
+                    "Você é e sempre será a melhor parte do meu dia. Eu te amo muito!"
+                </h3>
+            </div>
+        </section>
+    </div>
+
+    <!-- PÁGINA 2: Nossa Conexão -->
+    <div id="pagina-conexao" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
+        <header class="text-center mb-10">
+            <div class="text-6xl mb-2 pulso inline-block">🌍</div>
+            <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Nossa Conexão</h2>
+            <p class="text-red-900 font-medium">Mesmo com a distância, nossos corações batem no mesmo ritmo.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <div class="glass-box p-6 rounded-3xl text-center flex flex-col justify-between">
+                <div>
+                    <span class="text-3xl">📍</span>
+                    <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Distância Atual</h3>
+                    <p class="text-sm text-gray-600 mt-1">Calculada em tempo real com base na sua localização</p>
+                </div>
+                <div class="my-6">
+                    <span id="distancia-display" class="text-4xl md:text-5xl font-extrabold text-red-700">Calculando...</span>
+                </div>
+                <p class="text-xs text-gray-500 bg-white/50 py-2 rounded-xl">Atualizado por satélite há poucos segundos</p>
+            </div>
+
+            <div class="glass-box p-6 rounded-3xl text-center flex flex-col justify-between">
+                <div>
+                    <span class="text-3xl">⛅</span>
+                    <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Clima na Sua Cidade</h3>
+                    <p class="text-sm text-gray-600 mt-1">Para saber se você precisa de casaco hoje</p>
+                </div>
+                <div class="my-6">
+                    <div id="clima-info" class="text-xl font-bold text-red-800">Buscando previsão...</div>
+                </div>
+                <button onclick="carregarClima()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full text-sm shadow-md transition-all">
+                    Atualizar Clima
                 </button>
             </div>
         </div>
 
-        <!-- Pergunta 2 -->
-        <div id="pergunta-2" class="glass-box p-8 md:p-12 rounded-3xl w-full max-w-sm text-center hidden transform transition-all scale-95 opacity-0 relative z-20">
-            <div class="canto-floral canto-tl">🌺</div>
-            <div class="canto-floral canto-br">🌷</div>
-            
-            <h2 class="fonte-romantica text-4xl md:text-5xl text-red-600 mb-8 leading-tight texto-glow">O quantos % você me ama?</h2>
-            <div class="relative h-32 flex flex-col items-center gap-4">
-                <button id="btn-sim-2" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg shadow-red-500/50 transition-transform active:scale-95 w-full z-30 border-2 border-white/20">
-                    Todos os % do mundo
-                </button>
-                <button id="btn-nao-2" class="btn-fugitivo bg-white text-gray-700 font-semibold py-3 px-8 rounded-full shadow-md z-30 w-32 border border-gray-200">
-                    0%
-                </button>
+        <div class="glass-box p-8 rounded-3xl w-full mt-6 text-center">
+            <span class="text-3xl">🎟️</span>
+            <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Cupom de Resgate Imediato</h3>
+            <p class="text-sm text-gray-600 mt-1">Ao abrir esta página, você ganhou o direito de cobrar um abraço ou cafuné!</p>
+            <div class="mt-4 p-4 bg-white/70 rounded-2xl border border-red-200 inline-block">
+                <p id="texto-cupom" class="text-red-700 font-bold text-lg">"Vale um abraço bem apertado e beijo na testa assim que nos encontrarmos ❤️"</p>
             </div>
         </div>
     </div>
 
-    <div id="site-principal" class="hidden relative z-20 min-h-screen flex flex-col items-center pb-20 opacity-0 transition-opacity duration-1000">
-        
-        <!-- Menu de Navegação Superior -->
-        <nav class="w-full bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-40 px-4 py-3 border-b border-white/40">
-            <div class="max-w-4xl mx-auto flex justify-center gap-2 md:gap-4 flex-wrap">
-                <button onclick="mudarPagina('pagina-home')" id="tab-home" class="px-4 py-2 rounded-full font-semibold transition-all bg-red-500 text-white shadow-md text-sm md:text-base">
-                    💖 Nossa História
-                </button>
-                <button onclick="mudarPagina('pagina-conexao')" id="tab-conexao" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
-                    🌍 Nossa Conexão
-                </button>
-                <button onclick="mudarPagina('pagina-playlist')" id="tab-playlist" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
-                    🎵 Nossa Trilha
-                </button>
-                <button onclick="mudarPagina('pagina-capsula')" id="tab-capsula" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
-                    🎯 Metas e Jogos
-                </button>
-                <button onclick="mudarPagina('pagina-saude')" id="tab-saude" class="px-4 py-2 rounded-full font-semibold transition-all bg-white/60 text-red-700 hover:bg-white text-sm md:text-base">
-                    💊 Farmácia & Saúde
-                </button>
+    <!-- PÁGINA 3: Nossa Trilha Sonora -->
+    <div id="pagina-playlist" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
+        <header class="text-center mb-10">
+            <div class="text-6xl mb-2 pulso inline-block">🎵</div>
+            <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Nossa Trilha Sonora</h2>
+            <p class="text-red-900 font-medium">As músicas que tocam na nossa alma e definem o nosso amor.</p>
+        </header>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🎶</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Nossas Músicas</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-white/70 rounded-2xl flex items-center justify-between border border-red-100">
+                            <div>
+                                <h4 class="font-bold text-red-800 text-sm">Best Part (Daniel Caesar ft. H.E.R.)</h4>
+                                <p class="text-xs text-gray-600">Nossa música especial</p>
+                            </div>
+                            <button onclick="tocarMusicaPrincipal()" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full text-xs shadow">▶ Tocar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <p class="text-xs text-gray-500">Aperte o play para embalar nossa leitura de amor.</p>
+                </div>
             </div>
-        </nav>
 
-        <!-- PÁGINA 1: Nossa História -->
-        <div id="pagina-home" class="w-full flex flex-col items-center">
-            <header class="text-center mt-6 mb-12 px-4 relative">
-                <div class="text-6xl mb-2 pulso inline-block drop-shadow-md">💖</div>
-                <h1 class="fonte-romantica text-6xl md:text-8xl text-red-600 mb-6 texto-glow font-black">Nossa História</h1>
-                <p class="text-lg md:text-xl text-red-900 font-semibold bg-white/70 inline-block px-8 py-3 rounded-full shadow-lg backdrop-blur-md border border-white">
-                    A melhor escolha da minha vida há <span id="contador-dias" class="font-bold text-red-600 text-3xl mx-2">0</span> dias!
-                </p>
-            </header>
-
-            <section class="w-full max-w-5xl px-4 md:px-8 relative z-25">
-                <div class="flex flex-wrap justify-center gap-8 md:gap-10">
-                    <div class="polaroid w-full max-w-[280px]">
-                        <img src="imagens/foto1.jpeg" alt="Nosso Momento 1">
-                        <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Meu Tudo ❤️</div>
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">📝</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Recadinho Diário</h3>
                     </div>
-                    <div class="polaroid w-full max-w-[280px]">
-                        <img src="imagens/foto2.jpeg" alt="Nosso Momento 2">
-                        <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Nosso Momento ✨</div>
-                    </div>
-                    <div class="polaroid w-full max-w-[280px]">
-                        <img src="imagens/foto3.jpeg" alt="Nosso Momento 3">
-                        <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Perfeição 🥰</div>
-                    </div>
-                    <div class="polaroid w-full max-w-[280px]">
-                        <img src="imagens/foto4.jpeg" alt="Nosso Momento 4">
-                        <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Para Sempre 💑</div>
-                    </div>
-                    <div class="polaroid w-full max-w-[280px]">
-                        <img src="imagens/foto5.jpeg" alt="Nosso Momento 5">
-                        <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Minha Vida 💖</div>
+                    <div class="p-4 bg-white/80 rounded-2xl border border-red-200">
+                        <p id="recado-dia" class="text-red-900 font-medium italic text-base">"Lembrete: Você é a pessoa mais incrível, cheirosa e importante de todo o universo para mim. Bom dia, meu amor!"</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="mt-20 px-4 w-full max-w-2xl text-center z-25">
-                <div class="glass-box p-10 rounded-3xl relative border-2 border-white/50">
-                    <span class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-6xl pulso drop-shadow-lg">💌</span>
-                    <h3 class="fonte-romantica text-4xl md:text-5xl text-red-600 leading-relaxed mt-4 font-bold texto-glow">
-                        "Você é e sempre será a melhor parte do meu dia. Eu te amo muito!"
-                    </h3>
-                </div>
-            </section>
-        </div>
-
-        <!-- PÁGINA 2: Nossa Conexão -->
-        <div id="pagina-conexao" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
-            <header class="text-center mb-10">
-                <div class="text-6xl mb-2 pulso inline-block">🌍</div>
-                <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Nossa Conexão</h2>
-                <p class="text-red-900 font-medium">Mesmo com a distância, nossos corações batem no mesmo ritmo.</p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                <div class="glass-box p-6 rounded-3xl text-center flex flex-col justify-between">
-                    <div>
-                        <span class="text-3xl">📍</span>
-                        <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Distância Atual</h3>
-                        <p class="text-sm text-gray-600 mt-1">Calculada em tempo real com base na sua localização</p>
-                    </div>
-                    <div class="my-6">
-                        <span id="distancia-display" class="text-4xl md:text-5xl font-extrabold text-red-700">Calculando...</span>
-                    </div>
-                    <p class="text-xs text-gray-500 bg-white/50 py-2 rounded-xl">Atualizado por satélite há poucos segundos</p>
-                </div>
-
-                <div class="glass-box p-6 rounded-3xl text-center flex flex-col justify-between">
-                    <div>
-                        <span class="text-3xl">⛅</span>
-                        <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Clima na Sua Cidade</h3>
-                        <p class="text-sm text-gray-600 mt-1">Para saber se você precisa de casaco hoje</p>
-                    </div>
-                    <div class="my-6">
-                        <div id="clima-info" class="text-xl font-bold text-red-800">Buscando previsão...</div>
-                    </div>
-                    <button onclick="carregarClima()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full text-sm shadow-md transition-all">
-                        Atualizar Clima
+                <div class="mt-6 flex justify-center">
+                    <button onclick="mudarRecado()" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2 px-6 rounded-full text-sm shadow-md transition-all">
+                        Gerar Novo Recado 💌
                     </button>
                 </div>
             </div>
-
-            <div class="glass-box p-8 rounded-3xl w-full mt-6 text-center">
-                <span class="text-3xl">🎟️</span>
-                <h3 class="fonte-romantica text-3xl text-red-600 mt-2">Cupom de Resgate Imediato</h3>
-                <p class="text-sm text-gray-600 mt-1">Ao abrir esta página, você ganhou o direito de cobrar um abraço ou cafuné!</p>
-                <div class="mt-4 p-4 bg-white/70 rounded-2xl border border-red-200 inline-block">
-                    <p id="texto-cupom" class="text-red-700 font-bold text-lg">"Vale um abraço bem apertado e beijo na testa assim que nos encontrarmos ❤️"</p>
-                </div>
-            </div>
         </div>
-
-        <!-- PÁGINA 3: Nossa Trilha Sonora -->
-        <div id="pagina-playlist" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
-            <header class="text-center mb-10">
-                <div class="text-6xl mb-2 pulso inline-block">🎵</div>
-                <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Nossa Trilha Sonora</h2>
-                <p class="text-red-900 font-medium">As músicas que tocam na nossa alma e definem o nosso amor.</p>
-            </header>
-
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">🎶</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Nossas Músicas</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="p-3 bg-white/70 rounded-2xl flex items-center justify-between border border-red-100">
-                                <div>
-                                    <h4 class="font-bold text-red-800 text-sm">Best Part (Daniel Caesar ft. H.E.R.)</h4>
-                                    <p class="text-xs text-gray-600">Nossa música especial</p>
-                                </div>
-                                <button onclick="tocarMusicaPrincipal()" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full text-xs shadow">▶ Tocar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 text-center">
-                        <p class="text-xs text-gray-500">Aperte o play para embalar nossa leitura de amor.</p>
-                    </div>
-                </div>
-
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">📝</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Recadinho Diário</h3>
-                        </div>
-                        <div class="p-4 bg-white/80 rounded-2xl border border-red-200">
-                            <p id="recado-dia" class="text-red-900 font-medium italic text-base">"Lembrete: Você é a pessoa mais incrível, cheirosa e importante de todo o universo para mim. Bom dia, meu amor!"</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex justify-center">
-                        <button onclick="mudarRecado()" class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2 px-6 rounded-full text-sm shadow-md transition-all">
-                            Gerar Novo Recado 💌
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PÁGINA 4: Metas e Jogos -->
-        <div id="pagina-capsula" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
-            <header class="text-center mb-8">
-                <div class="text-6xl mb-2 pulso inline-block">🎯</div>
-                <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Metas e Jogos</h2>
-                <p class="text-red-900 font-medium">Nossa caixinha de desejos e o super Quiz de Casal com 30 perguntas!</p>
-            </header>
-
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">✨</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Caixinha de Desejos</h3>
-                        </div>
-                        <p class="text-xs text-gray-600 mb-3">Adicione nossos desejos e metas para realizarmos juntos:</p>
-                        
-                        <div class="flex gap-2 mb-4">
-                            <input type="text" id="input-desejo" placeholder="Ex: Viajar para o Japão..." class="flex-1 bg-white/80 border border-red-200 rounded-2xl px-4 py-2 text-sm text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
-                            <button onclick="adicionarDesejo()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-2xl text-sm shadow">Adicionar</button>
-                        </div>
-
-                        <ul id="lista-desejos" class="space-y-2 text-sm text-red-900 max-h-48 overflow-y-auto pr-1">
-                            <li class="bg-white/70 p-2.5 rounded-xl flex items-center justify-between border border-red-100">
-                                <span>🌍 Viajar para Paris juntos</span>
-                                <span class="text-xs text-red-500 font-bold">Meta</span>
-                            </li>
-                            <li class="bg-white/70 p-2.5 rounded-xl flex items-center justify-between border border-red-100">
-                                <span>☕ Tomar café na cama todo domingo</span>
-                                <span class="text-xs text-red-500 font-bold">Meta</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-3xl">🎯</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Quiz de Casal (30 Perguntas)</h3>
-                        </div>
-                        <p id="quiz-progresso" class="text-xs font-bold text-red-500 mb-4">Pergunta 1 de 30</p>
-                        
-                        <div id="quiz-card-corpo" class="bg-white/80 p-4 rounded-2xl border border-red-200 min-h-[140px] flex flex-col justify-between">
-                            <p id="quiz-pergunta-texto" class="text-red-900 font-semibold text-sm mb-3">Carregando pergunta...</p>
-                            <div id="quiz-opcoes" class="grid grid-cols-2 gap-2"></div>
-                        </div>
-                        <div id="quiz-resultado-final" class="hidden text-center py-6">
-                            <h4 class="fonte-romantica text-3xl text-red-600 font-bold mb-2">Quiz Concluído! 🎉</h4>
-                            <p id="quiz-pontuacao-final" class="text-red-900 font-medium text-sm mb-4">Você acertou todas!</p>
-                            <button onclick="reiniciarQuiz()" class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow">Jogar Novamente</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PÁGINA 5: Farmácia e Saúde -->
-        <div id="pagina-saude" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
-            <header class="text-center mb-8">
-                <div class="text-6xl mb-2 pulso inline-block">💊</div>
-                <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Farmácia & Cuidados</h2>
-                <p class="text-red-900 font-medium">Guia rápido de remédios comuns, sintomas e assistente virtual de saúde.</p>
-            </header>
-
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">🩺</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Guia de Remédios & Sintomas</h3>
-                        </div>
-                        <div class="mb-4">
-                            <input type="text" id="filtro-remedio" placeholder="Pesquisar sintoma (ex: dor de cabeça, febre)..." oninput="filtrarRemedios()" class="w-full bg-white/80 border border-red-200 rounded-2xl px-4 py-2 text-sm text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
-                        </div>
-                        <div id="lista-remedios" class="space-y-3 max-h-64 overflow-y-auto pr-1"></div>
-                    </div>
-                </div>
-
-                <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">🤖</span>
-                            <h3 class="fonte-romantica text-3xl text-red-600">Assistente de Saúde IA</h3>
-                        </div>
-                        <p class="text-xs text-gray-600 mb-3">Tire dúvidas leves sobre sintomas ou peça orientações de bem-estar:</p>
-                        
-                        <div id="chat-saude-historico" class="bg-white/80 border border-red-200 rounded-2xl p-3 h-44 overflow-y-auto mb-3 text-xs text-red-900 space-y-2">
-                            <div class="bg-red-50 p-2 rounded-xl">
-                                <strong>Assistente Dr. Amor:</strong> Olá! Como você está se sentindo hoje? Digite seu sintoma ou dúvida abaixo.
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <input type="text" id="input-chat-saude" placeholder="Ex: Estou com dor de cabeça..." onkeypress="if(event.key === 'Enter') enviarMensagemSaude()" class="flex-1 bg-white/80 border border-red-200 rounded-2xl px-3 py-2 text-xs text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
-                            <button onclick="enviarMensagemSaude()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-2xl text-xs shadow">Enviar</button>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <p class="text-[10px] text-gray-500 italic">⚠️ Aviso: Esta ferramenta é informativa e amorosa. Procure um médico se os sintomas persistirem.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- Áudio de Fundo com a música Best Part (streaming direto) -->
-    <audio id="musica-fundo" src="https://cdns-preview--d.dzcdn.net/stream/c-deda725170d10afaa17f35212c40212f-3.mp3" loop preload="auto"></audio>
-   
-    <!-- Script Separado -->
-    <script src="script.js"></script>
+    <!-- PÁGINA 4: Metas e Jogos -->
+    <div id="pagina-capsula" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
+        <header class="text-center mb-8">
+            <div class="text-6xl mb-2 pulso inline-block">🎯</div>
+            <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Metas e Jogos</h2>
+            <p class="text-red-900 font-medium">Nossa caixinha de desejos e o super Quiz de Casal com 30 perguntas!</p>
+        </header>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">✨</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Caixinha de Desejos</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 mb-3">Adicione nossos desejos e metas para realizarmos juntos:</p>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <input type="text" id="input-desejo" placeholder="Ex: Viajar para o Japão..." class="flex-1 bg-white/80 border border-red-200 rounded-2xl px-4 py-2 text-sm text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
+                        <button onclick="adicionarDesejo()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-2xl text-sm shadow">Adicionar</button>
+                    </div>
+
+                    <ul id="lista-desejos" class="space-y-2 text-sm text-red-900 max-h-48 overflow-y-auto pr-1">
+                        <li class="bg-white/70 p-2.5 rounded-xl flex items-center justify-between border border-red-100">
+                            <span>🌍 Viajar para Paris juntos</span>
+                            <span class="text-xs text-red-500 font-bold">Meta</span>
+                        </li>
+                        <li class="bg-white/70 p-2.5 rounded-xl flex items-center justify-between border border-red-100">
+                            <span>☕ Tomar café na cama todo domingo</span>
+                            <span class="text-xs text-red-500 font-bold">Meta</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">🎯</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Quiz de Casal (30 Perguntas)</h3>
+                    </div>
+                    <p id="quiz-progresso" class="text-xs font-bold text-red-500 mb-4">Pergunta 1 de 30</p>
+                    
+                    <div id="quiz-card-corpo" class="bg-white/80 p-4 rounded-2xl border border-red-200 min-h-[140px] flex flex-col justify-between">
+                        <p id="quiz-pergunta-texto" class="text-red-900 font-semibold text-sm mb-3">Carregando pergunta...</p>
+                        <div id="quiz-opcoes" class="grid grid-cols-2 gap-2"></div>
+                    </div>
+                    <div id="quiz-resultado-final" class="hidden text-center py-6">
+                        <h4 class="fonte-romantica text-3xl text-red-600 font-bold mb-2">Quiz Concluído! 🎉</h4>
+                        <p id="quiz-pontuacao-final" class="text-red-900 font-medium text-sm mb-4">Você acertou todas!</p>
+                        <button onclick="reiniciarQuiz()" class="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow">Jogar Novamente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 5: Farmácia e Saúde -->
+    <div id="pagina-saude" class="w-full flex flex-col items-center hidden px-4 max-w-4xl mx-auto mt-8">
+        <header class="text-center mb-8">
+            <div class="text-6xl mb-2 pulso inline-block">💊</div>
+            <h2 class="fonte-romantica text-5xl md:text-6xl text-red-600 mb-2 texto-glow font-black">Farmácia & Cuidados</h2>
+            <p class="text-red-900 font-medium">Guia rápido de remédios comuns, sintomas e assistente virtual de saúde.</p>
+        </header>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🩺</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Guia de Remédios & Sintomas</h3>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" id="filtro-remedio" placeholder="Pesquisar sintoma (ex: dor de cabeça, febre)..." oninput="filtrarRemedios()" class="w-full bg-white/80 border border-red-200 rounded-2xl px-4 py-2 text-sm text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
+                    </div>
+                    <div id="lista-remedios" class="space-y-3 max-h-64 overflow-y-auto pr-1"></div>
+                </div>
+            </div>
+
+            <div class="glass-box p-6 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🤖</span>
+                        <h3 class="fonte-romantica text-3xl text-red-600">Assistente de Saúde IA</h3>
+                    </div>
+                    <p class="text-xs text-gray-600 mb-3">Tire dúvidas leves sobre sintomas ou peça orientações de bem-estar:</p>
+                    
+                    <div id="chat-saude-historico" class="bg-white/80 border border-red-200 rounded-2xl p-3 h-44 overflow-y-auto mb-3 text-xs text-red-900 space-y-2">
+                        <div class="bg-red-50 p-2 rounded-xl">
+                            <strong>Assistente Dr. Amor:</strong> Olá! Como você está se sentindo hoje? Digite seu sintoma ou dúvida abaixo.
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <input type="text" id="input-chat-saude" placeholder="Ex: Estou com dor de cabeça..." onkeypress="if(event.key === 'Enter') enviarMensagemSaude()" class="flex-1 bg-white/80 border border-red-200 rounded-2xl px-3 py-2 text-xs text-red-900 focus:outline-none focus:ring-2 focus:ring-red-400">
+                        <button onclick="enviarMensagemSaude()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-2xl text-xs shadow">Enviar</button>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-[10px] text-gray-500 italic">⚠️ Aviso: Esta ferramenta é informativa e amorosa. Procure um médico se os sintomas persistirem.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Áudio de Fundo apontando para o arquivo local da música -->
+<audio id="musica-fundo" src="Best Part (feat. H.E.R.) - Daniel Caesar.mp3" loop preload="auto"></audio>
+
+<!-- Script Separado -->
+<script src="script.js"></script>
+
