@@ -10,8 +10,6 @@ const btnSim1 = document.getElementById('btn-sim-1');
 const btnSim2 = document.getElementById('btn-sim-2');
 
 const musica = document.getElementById('musica-fundo');
-const somAcerto = document.getElementById('som-acerto');
-const somErro = document.getElementById('som-erro');
 
 const dataInicio = new Date('2025-05-25T00:00:00'); 
 
@@ -44,11 +42,6 @@ function gerarFloresFundo() {
 gerarFloresFundo();
 
 function fugir(botao) {
-    try {
-        somErro.currentTime = 0;
-        somErro.play().catch(e => {});
-    } catch(e) {}
-    
     if (botao.parentNode !== document.body) {
         document.body.appendChild(botao);
     }
@@ -69,7 +62,6 @@ btnNao1.addEventListener('click', (e) => { e.preventDefault(); fugir(btnNao1); }
 btnNao2.addEventListener('click', (e) => { e.preventDefault(); fugir(btnNao2); });
 
 btnSim1.addEventListener('click', () => {
-    try { somAcerto.play().catch(e => {}); } catch(e) {}
     if (btnNao1.parentNode === document.body) btnNao1.remove();
     btnNao1.style.display = 'none';
     
@@ -87,7 +79,6 @@ btnSim1.addEventListener('click', () => {
 
 btnSim2.addEventListener('click', () => {
     try { 
-        somAcerto.play().catch(e => {});
         musica.play().catch(e => {}); 
     } catch(e) {}
     
