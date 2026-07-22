@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Importando o arquivo de estilos externo -->
+    <!-- Importando Estilos Separados -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-gray-800 antialiased selection:bg-red-200 selection:text-red-900">
@@ -94,23 +94,23 @@
             <section class="w-full max-w-5xl px-4 md:px-8 relative z-25">
                 <div class="flex flex-wrap justify-center gap-8 md:gap-10">
                     <div class="polaroid w-full max-w-[280px]">
-                        <img src="https://placehold.co/400x400/ff9999/ffffff?text=Meu+Amor+1" alt="Nossa Foto 1" onerror="this.src='https://placehold.co/400x400/ff9999/ffffff?text=Foto+1.jpeg'">
+                        <img src="imagens/foto1.jpeg" alt="Nosso Momento 1">
                         <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Meu Tudo ❤️</div>
                     </div>
                     <div class="polaroid w-full max-w-[280px]">
-                        <img src="https://placehold.co/400x400/ff9999/ffffff?text=Meu+Amor+2" alt="Nossa Foto 2" onerror="this.src='https://placehold.co/400x400/ff9999/ffffff?text=Foto+2.jpeg'">
+                        <img src="imagens/foto2.jpeg" alt="Nosso Momento 2">
                         <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Nosso Momento ✨</div>
                     </div>
                     <div class="polaroid w-full max-w-[280px]">
-                        <img src="https://placehold.co/400x400/ff9999/ffffff?text=Meu+Amor+3" alt="Nossa Foto 3" onerror="this.src='https://placehold.co/400x400/ff9999/ffffff?text=Foto+3.jpeg'">
+                        <img src="imagens/foto3.jpeg" alt="Nosso Momento 3">
                         <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Perfeição 🥰</div>
                     </div>
                     <div class="polaroid w-full max-w-[280px]">
-                        <img src="https://placehold.co/400x400/ff9999/ffffff?text=Meu+Amor+4" alt="Nossa Foto 4" onerror="this.src='https://placehold.co/400x400/ff9999/ffffff?text=Foto+4.jpeg'">
+                        <img src="imagens/foto4.jpeg" alt="Nosso Momento 4">
                         <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Para Sempre 💑</div>
                     </div>
                     <div class="polaroid w-full max-w-[280px]">
-                        <img src="https://placehold.co/400x400/ff9999/ffffff?text=Meu+Amor+5" alt="Nossa Foto 5" onerror="this.src='https://placehold.co/400x400/ff9999/ffffff?text=Foto+5.jpeg'">
+                        <img src="imagens/foto5.jpeg" alt="Nosso Momento 5">
                         <div class="text-center mt-4 text-red-500 text-2xl font-bold fonte-romantica">Minha Vida 💖</div>
                     </div>
                 </div>
@@ -190,17 +190,10 @@
                         <div class="space-y-3">
                             <div class="p-3 bg-white/70 rounded-2xl flex items-center justify-between border border-red-100">
                                 <div>
-                                    <h4 class="font-bold text-red-800 text-sm">Best Part</h4>
-                                    <p class="text-xs text-gray-600">Daniel Caesar ft. H.E.R.</p>
+                                    <h4 class="font-bold text-red-800 text-sm">Best Part (Daniel Caesar ft. H.E.R.)</h4>
+                                    <p class="text-xs text-gray-600">Nossa música especial</p>
                                 </div>
                                 <button onclick="tocarMusicaPrincipal()" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full text-xs shadow">▶ Tocar</button>
-                            </div>
-                            <div class="p-3 bg-white/70 rounded-2xl flex items-center justify-between border border-red-100">
-                                <div>
-                                    <h4 class="font-bold text-red-800 text-sm">A Thousand Years</h4>
-                                    <p class="text-xs text-gray-600">Christina Perri</p>
-                                </div>
-                                <span class="text-xs text-red-600 font-semibold px-2">Nossa Vibe ✨</span>
                             </div>
                         </div>
                     </div>
@@ -335,12 +328,8 @@
 
     </div>
 
-    <!-- Áudios -->
-    <audio id="musica-fundo" src="best-part.mp3" loop preload="auto"></audio>
-    <audio id="som-acerto" src="acerto.mp3" preload="auto"></audio>
-    <audio id="som-erro" src="erro.mp3" preload="auto"></audio>
-
-    <!-- Importando o arquivo de JavaScript externo -->
+    <!-- Áudio de Fundo com a música Best Part (streaming direto) -->
+    <audio id="musica-fundo" src="https://cdns-preview--d.dzcdn.net/stream/c-deda725170d10afaa17f35212c40212f-3.mp3" loop preload="auto"></audio>
+   
+    <!-- Script Separado -->
     <script src="script.js"></script>
-</body>
-</html>
